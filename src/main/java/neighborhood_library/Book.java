@@ -3,7 +3,7 @@ package neighborhood_library;
 public class Book {
     private int id;
     private String isbn;
-    private String Title;
+    private String title;
     private boolean isCheckedOut;
     private  String checkedOutTo;
 
@@ -11,7 +11,7 @@ public class Book {
         this.id = id;
         this.checkedOutTo = checkedOutTo;
         this.isCheckedOut = isCheckedOut;
-        Title = title;
+        this.title = title;
         this.isbn = isbn;
     }
 
@@ -24,7 +24,7 @@ public class Book {
     }
 
     public String getTitle() {
-        return Title;
+        return title;
     }
 
     public boolean isCheckedOut() {

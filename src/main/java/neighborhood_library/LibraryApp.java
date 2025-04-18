@@ -38,7 +38,7 @@ public class LibraryApp {
     }
     private static void initializeBooks(){
         for (int i = 0; i < 20; i++){
-            books[i] = new Book(i + 1, "ISBN" + (1000 +i), "Book Title" + (i +1));
+            books[i] = new Book(i + 1, "ISBN" + (1000 +i), false,"Book Title" + (i +1),"");
         }
     }
 
@@ -73,5 +73,27 @@ public class LibraryApp {
             }
         }
 
+        System.out.print("Enter X to return or Y to check in:");
+        String input = scanner.nextLine().toUpperCase();
+
+        if ("Y".equals(input)){
+            System.out.print("Enter book ID to check in:");
+            int bookId = Integer.parseInt(scanner.nextLine());
+
+            Book book = findBookByID(bookId);
+            if (book != null & book.isCheckedOut()){
+                book.checkIn();
+                System.out.println("Book checked in.");
+            }else {
+                System.out.println("Invalid ID or is no checked out.");
+            }
+        }
+    }
+
+    private static Book findBookByID(int id){
+        for (Book book : books){
+            if (book.getId() == id) return book;
+        }
+        return null;
     }
 }
